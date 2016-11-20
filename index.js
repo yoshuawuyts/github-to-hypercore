@@ -26,11 +26,11 @@ app.router([
   ['/', {
     post: function (req, res, params, done) {
       // handle ping events to check if the service is alive
-      if (res.headers['x-github-event'] === 'ping') {
+      if (req.headers['x-github-event'] === 'ping') {
         return done()
       }
 
-      const sigHeader = res.headers['x-hub-signature']
+      const sigHeader = req.headers['x-hub-signature']
       pump(req, concat(concatSink), function (err) {
         if (err) return done(error(500, 'pipe error'))
         done()
