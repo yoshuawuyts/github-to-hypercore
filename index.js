@@ -33,7 +33,6 @@ app.router([
       const sigHeader = req.headers['x-hub-signature']
       pump(req, concat(concatSink), function (err) {
         if (err) return done(error(500, 'pipe error'))
-        done()
       })
 
       function concatSink (buf) {
