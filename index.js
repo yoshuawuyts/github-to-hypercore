@@ -2,6 +2,7 @@
 
 const concat = require('concat-stream')
 const listen = require('merry/listen')
+const json = require('merry/json')
 const notFound = require('merry/404')
 const normcore = require('normcore')
 const error = require('merry/error')
@@ -48,7 +49,7 @@ app.router([
           headers: req.headers,
           body: buf.toString('utf8')
         })
-        done()
+        done(null, json({message: 'done'}))
       }
     }
   }]
