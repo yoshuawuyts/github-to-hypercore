@@ -6,7 +6,7 @@ Stream a github event feed into a hypercore.
 
 ## Usage
 ```sh
-$ KEY=<some-hmac> PORT=<some-port> github-to-hypercore
+$ SECRET=<cool-github-secret> PORT=<some-port> github-to-hypercore
 # => <base64 key>
 ```
 
