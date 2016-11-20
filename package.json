@@ -1,0 +1,35 @@
+{
+  "name": "github-to-hypercore",
+  "version": "1.0.0",
+  "description": "Stream a github event feed into a hypercore",
+  "main": "index.js",
+  "bin": {
+    "github-to-hypercore": "index.js"
+  },
+  "scripts": {
+    "start": "node ./index.js | merry-pretty",
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "test": "standard && npm run deps && NODE_ENV=test node test",
+    "test:cov": "standard && npm run deps && NODE_ENV=test istanbul cover test.js"
+  },
+  "repository": "yoshuawuyts/github-to-hypercore",
+  "keywords": [
+    "hypercore",
+    "hyperdrive",
+    "github",
+    "events"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "concat-stream": "^1.5.2",
+    "merry": "^2.1.1",
+    "normcore": "^1.0.3",
+    "pump": "^1.0.1"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.6.0",
+    "istanbul": "^0.4.5",
+    "standard": "^8.5.0",
+    "tape": "^4.6.2"
+  }
+}
