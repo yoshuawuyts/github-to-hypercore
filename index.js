@@ -36,9 +36,9 @@ app.router([
       })
 
       function concatSink (buf) {
-        const hmac = crypto.createHmac('sha256', env.SECRET)
+        const hmac = crypto.createHmac('sha1', env.SECRET)
         hmac.update(buf)
-        const signature = hmac.digest('hex')
+        const signature = ('sha1=' + hmac.digest('hex'))
 
         if (signature !== sigHeader) {
           return done(error(400, 'invalid x-hub-signature'))
