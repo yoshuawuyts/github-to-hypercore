@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node ./index.js | merry-pretty",
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
-    "test": "standard && npm run deps && NODE_ENV=test node test",
-    "test:cov": "standard && npm run deps && NODE_ENV=test istanbul cover test.js"
+    "test": "standard && npm run deps",
+    "test:cov": "standard && npm run deps"
   },
   "repository": "yoshuawuyts/github-to-hypercore",
   "keywords": [
@@ -28,8 +28,6 @@
   },
   "devDependencies": {
     "dependency-check": "^2.6.0",
-    "istanbul": "^0.4.5",
-    "standard": "^8.5.0",
-    "tape": "^4.6.2"
+    "standard": "^8.5.0"
   }
 }
