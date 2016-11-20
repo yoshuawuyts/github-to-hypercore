@@ -2,7 +2,7 @@
 
 const concat = require('concat-stream')
 const listen = require('merry/listen')
-const json = require('merry/json')
+const string = require('merry/string')
 const notFound = require('merry/404')
 const normcore = require('normcore')
 const error = require('merry/error')
@@ -45,11 +45,11 @@ app.router([
           return done(error(400, 'invalid x-hub-signature'))
         }
 
-        feed.append({
+        feed.append(JSON.stringify({
           headers: req.headers,
           body: buf.toString('utf8')
-        })
-        done(null, json({message: 'done'}))
+        }))
+        done(null, string('{message: "done"}'))
       }
     }
   }]
