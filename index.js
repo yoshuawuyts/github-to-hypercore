@@ -24,11 +24,14 @@ console.info(JSON.stringify({ key: key }))
 
 app.router([
   ['/404', notFound()],
+  [ '/heartbeat', function (req, res, params, done) {
+    done(null, string('{message: "done"}'))
+  } ],
   ['/', {
     post: function (req, res, params, done) {
       // handle ping events to check if the service is alive
       if (req.headers['x-github-event'] === 'ping') {
-        return done()
+        done(null, string('{message: "done"}'))
       }
 
       const sigHeader = req.headers['x-hub-signature']
